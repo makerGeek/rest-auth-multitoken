@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rest-auth-multitoken"
-version = "0.1.0"
+version = "0.2.0"
 description = "Add multiple tokens support to django-rest-auth."
 authors = ["makerGeek <moetez.93@gmail.com>"]
 readme = "readme.md"
