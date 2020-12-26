@@ -6,6 +6,7 @@ from rest_auth_multitoken.rest_auth_multitoken.models import Token
 def multitoken_create(token_model, user, serializer):
     token = token_model(user=user)
     token.save()
+    user.auth_multitoken = token
     return token
 
 

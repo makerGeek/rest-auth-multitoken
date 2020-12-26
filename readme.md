@@ -48,16 +48,21 @@ REST_AUTH_TOKEN_CREATOR = 'rest_auth_multitoken.utils.multitoken_create'
 REST_AUTH_TOKEN_MODEL = 'rest_auth_multitoken.models.Token'
 ```
 
-Finally include the new `LogoutView` in `urls.py`, just before `django-rest-auth`'s urls:
+Finally include the new `MultitokenLogoutView` and `MultitokenRegisterView` in `urls.py`, just before `django-rest-auth`'s urls:
 
 ```py
 # urls.py
 from rest_auth_multitoken import MultitokenLogoutView
+from rest_auth_multitoken.rest_auth_multitoken.views import MultitokenRegisterView
+
 
 
 urlpatterns = [
     ...
     path('api/auth/logout/', MultitokenLogoutView.as_view()),
+    path('api/auth/registration/', MultitokenRegisterView.as_view())
+
+    path('api/auth/registration/', include('rest_auth.registration.urls'))
     path('api/auth/', include('rest_auth.urls')),
     ...
 ]
